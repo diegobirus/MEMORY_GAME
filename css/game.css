@@ -26,7 +26,7 @@ header {
 
 .grid   {
     display: grid;
-grid-template-columns: repeat(5, 1fr) ;
+    grid-template-columns: repeat(10, 1fr) ;
     gap: 15px;
     width: 100%;
     max-width: 800px;
@@ -40,6 +40,7 @@ grid-template-columns: repeat(5, 1fr) ;
     position: relative;
     transition: all 400ms ease;
     transform-style: preserve-3d;
+    background-color: #ccc;
 }
 
 .face {

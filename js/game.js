@@ -1,18 +1,19 @@
 const grid = document.querySelector('.grid');
-
+const spanPlayer = document.querySelector('.player');
+const timer = document.querySelector('.timer');
 const characters = [
     'ANA',
     'BANANA',
     'BRABOES',
-    /*'DAVI',*/
+    'DAVI',
     'GOSTEI',
     'GRAZI',
     'JAQUE',
-    /*'LIVIA',*/
+    'LIVIA',
     'MARCIO',
     'MARCIODIEGO',
     'NOFA',
-  /*  'JULIADAVI',*/
+    'JULIADAVI',
     'LADIES',
 ];
 
@@ -28,8 +29,9 @@ let secondCard = '';
 checkEndGame = () => {
     const disableCards = document.querySelectorAll ('.disable-card');
 
-    if (disableCards.length == 20 ) {
-alert ('Parabens, você VENCEU!');        
+    if (disableCards.length == 26 ) {
+        clearInterval(this.loop);
+alert (`${ spanPlayer.innerHTML} você VENCEU! Mas poderia ter sido melhor. Seu tempo foi: ${timer.innerHTML}.`);        
     }
 }
 
@@ -116,4 +118,21 @@ grid.appendChild(card);
     });
 }
 
-loadGame();  
+const startTimer = () => {
+
+    this.loop =    setInterval(() => {
+     const currentTime = +timer.innerHTML;
+     timer.innerHTML = currentTime + 1;
+
+    }, 1000);
+
+}
+
+window.onload = () => {
+
+     spanPlayer.innerHTML = localStorage.getItem('player');
+     startTimer();
+    loadGame(); 
+}
+
+ 
