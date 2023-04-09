@@ -5,7 +5,11 @@ align-items: center;
 width: 100%;
 background-image: url('../images/bg.jpg');
 background-size: cover;
+<<<<<<< HEAD
 min-height: 100vh;
+=======
+height: 100vh;
+>>>>>>> 744817fc6094f87efaf670a1f3e32065f23e3da8
 align-content: center;
 justify-content: center;
 padding: 20px 20px 50px;
