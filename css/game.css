@@ -5,11 +5,7 @@ align-items: center;
 width: 100%;
 background-image: url('../images/bg.jpg');
 background-size: cover;
-<<<<<<< HEAD
-min-height: 100vh;
-=======
 height: 100vh;
->>>>>>> 744817fc6094f87efaf670a1f3e32065f23e3da8
 align-content: center;
 justify-content: center;
 padding: 20px 20px 50px;
@@ -21,17 +17,17 @@ header {
     align-items: center;
     justify-content: space-between;
     background-color: rgba(255,255,255, 0.8);
-    font-size: 1.2em;
+    font-size: 3em;
     width: 100%;
     max-width: 800px;
-    padding: 30px;
+    padding: 10px;
     margin: 0 0 30px;
     border-radius: 5px;
 }
 
 .grid   {
     display: grid;
-    grid-template-columns: repeat(10, 1fr) ;
+    grid-template-columns: repeat(8, 1fr) ;
     gap: 15px;
     width: 100%;
     max-width: 800px;

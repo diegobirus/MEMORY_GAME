@@ -23,46 +23,46 @@ const createElement = (tag, className) => {
     return element;
 }
 
-let firstCard= '';
+let firstCard = '';
 let secondCard = '';
 
 checkEndGame = () => {
-    const disableCards = document.querySelectorAll ('.disable-card');
+    const disableCards = document.querySelectorAll('.disable-card');
 
-    if (disableCards.length == 26 ) {
+    if (disableCards.length == 26) {
         clearInterval(this.loop);
-alert (`${ spanPlayer.innerHTML} você VENCEU! Mas poderia ter sido melhor. Seu tempo foi: ${timer.innerHTML}.`);        
+        alert(`${spanPlayer.innerHTML} você VENCEU! Mas poderia ter sido melhor. Seu tempo foi: ${timer.innerHTML}.`);
     }
 }
 
 const checkCards = () => {
 
-  const firstCharacter = firstCard.getAttribute('data-character');
-  const secondCharacter = secondCard.getAttribute('data-character');
+    const firstCharacter = firstCard.getAttribute('data-character');
+    const secondCharacter = secondCard.getAttribute('data-character');
 
-if (firstCharacter == secondCharacter ) {
-    
-    firstCard.firstChild.classList.add('disable-card');
-    secondCard.firstChild.classList.add('disable-card');
+    if (firstCharacter == secondCharacter) {
 
-    firstCard = ''; 
-    secondCard = '';
+        firstCard.firstChild.classList.add('disable-card');
+        secondCard.firstChild.classList.add('disable-card');
 
-checkEndGame ();
+        firstCard = '';
+        secondCard = '';
 
-} else {
+        checkEndGame();
 
-setTimeout( () => {
+    } else {
 
-    firstCard.classList.remove('reveal-card');
-    secondCard.classList.remove('reveal-card');
+        setTimeout(() => {
 
-    firstCard = ''; 
-    secondCard = '';
+            firstCard.classList.remove('reveal-card');
+            secondCard.classList.remove('reveal-card');
 
-}, 500);
+            firstCard = '';
+            secondCard = '';
 
-};
+        }, 500);
+
+    };
 }
 const revealCard = ({ target }) => {
 
@@ -71,18 +71,18 @@ const revealCard = ({ target }) => {
     }
 
     if (firstCard == '') {
-        
+
         target.parentNode.classList.add('reveal-card');
         firstCard = target.parentNode;
 
     } else if (secondCard == '') {
- 
+
         target.parentNode.classList.add('reveal-card');
         secondCard = target.parentNode;
 
         checkCards();
     }
-    
+
 }
 
 const createCard = (character) => {
@@ -96,33 +96,33 @@ const createCard = (character) => {
     card.appendChild(front);
     card.appendChild(back);
 
-    card.addEventListener ('click', revealCard)
+    card.addEventListener('click', revealCard)
     card.setAttribute('data-character', character)
 
-return card;
+    return card;
 
 }
 
 const loadGame = () => {
 
-    const duplicateCharacters = [ ...characters, ...characters ];
+    const duplicateCharacters = [...characters, ...characters];
 
-    const shuffledArray = duplicateCharacters.sort( () => Math.random() -0.5);
+    const shuffledArray = duplicateCharacters.sort(() => Math.random() - 0.5);
 
-    
 
-    duplicateCharacters.forEach( (character) => {
-          
-const card = createCard (character);
-grid.appendChild(card);
+
+    duplicateCharacters.forEach((character) => {
+
+        const card = createCard(character);
+        grid.appendChild(card);
     });
 }
 
 const startTimer = () => {
 
-    this.loop =    setInterval(() => {
-     const currentTime = +timer.innerHTML;
-     timer.innerHTML = currentTime + 1;
+    this.loop = setInterval(() => {
+        const currentTime = +timer.innerHTML;
+        timer.innerHTML = currentTime + 1;
 
     }, 1000);
 
@@ -130,9 +130,8 @@ const startTimer = () => {
 
 window.onload = () => {
 
-     spanPlayer.innerHTML = localStorage.getItem('player');
-     startTimer();
-    loadGame(); 
+    spanPlayer.innerHTML = localStorage.getItem('player');
+    startTimer();
+    loadGame();
 }
 
- 
